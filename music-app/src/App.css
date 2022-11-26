@@ -1,0 +1,75 @@
+.App {
+  background-color: #282c34;
+  min-height: 100vh;
+  color: white;
+  box-sizing: border-box;
+}
+
+/* .App-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+} */
+
+/* .App-link {
+  color: #61dafb;
+} */
+
+.nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 110px;
+  width: 200px;
+  min-height: calc(100vh - 110px);
+  background-color: #333a47;
+}
+
+.Home,
+.Albums,
+.Artists,
+.Fav-songs {
+  width: calc(100vw - 200px);
+  position: relative;
+  left: 200px;
+}
+
+.nav-bar__link {
+  text-decoration: none;
+  color: silver;
+}
+
+.nav-bar__link:hover {
+  color: white;
+}
+
+.mp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 110px;
+  background-color: #323741;
+}
+
+.mp-album {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white !important;
+}
+
+.mp-player__btn-group {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+}
