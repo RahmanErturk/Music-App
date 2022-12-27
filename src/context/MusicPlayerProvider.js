@@ -1,57 +1,98 @@
-import { createContext, useState, useEffect } from "react";
-import AllSounds from "../components/AllSounds";
+import { createContext, useState, useEffect, useRef } from "react";
+import songs from "../data.json";
 
 export const MusicPlayerContext = createContext();
 
 const MusicPlayerProvider = ({ children }) => {
-  const [allSongs, setAllSongs] = useState(AllSounds);
+  const audioPlayer = useRef();
+
+  const [allSongs] = useState(songs.songs);
+  const [data, setData] = useState({});
+  const [playlist, setPlaylist] = useState([]);
+
   const [isPlaying, setIsPlaying] = useState(false);
   const [index, setIndex] = useState(0);
-  const [likedSongs, setLikedSongs] = useState([]);
 
-  const [songImg, setSongImg] = useState(allSongs[index].image);
-  const [songTitle, setSongTitle] = useState(allSongs[index].title);
-  const [songArtist, setSongArtist] = useState(allSongs[index].artist);
+  const [currentSong, setCurrentSong] = useState("");
 
-  useEffect(() => {
-    if (localStorage.getItem("likedSongs")) {
-      const storedSongs = JSON.parse(localStorage.getItem("likedSongs"));
-      setLikedSongs(storedSongs);
+  const [songImg, setSongImg] = useState("");
+  const [songTitle, setSongTitle] = useState("");
+  const [songArtist, setSongArtist] = useState("");
+
+  const getData = () => {
+    fetch("http://localhost:4000/api")
+      .then((res) => res.json())
+      .then((data) => {
+        setData(data);
+      });
+  };
+
+  useEffect(getData, []);
+
+  const toggleLikeSong = () => {
+    console.log(data.songs[index]);
+    fetch(`http://localhost:4000/api/songs/${data.songs[index].id}`, {
+      method: "PUT",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        ...data.songs[index],
+        isLiked: !data.songs[index].isLiked,
+      }),
+    })
+      .then((res) => {
+        getData();
+        res.json();
+      })
+      .then((message) => console.log(message));
+  };
+
+  const togglePlay = () => {
+    if (!isPlaying) {
+      audioPlayer.current.play();
+    } else {
+      audioPlayer.current.pause();
     }
-  }, []);
+    setIsPlaying(!isPlaying);
+  };
 
-  const addToFavSongs = () => {
-    if (!allSongs[index].isLiked) {
-      setAllSongs([
-        ...allSongs,
-        {
-          ...allSongs.find((e) => e.title === allSongs[index].title),
-          isLiked: true,
-        },
-      ]);
-      // allSongs[index] = {
-      //   ...allSongs[index],
-      //   isLiked: true,
-      // };
-      setLikedSongs([...likedSongs, allSongs[index]]);
-      console.log(allSongs);
-      console.log(allSongs[index]);
-      console.log(allSongs[index].isLiked);
-      localStorage.setItem(
-        "likedSongs",
-        JSON.stringify([...likedSongs, allSongs[index]])
-      );
+  const toggleSkipForward = () => {
+    if (index >= playlist.length - 1) {
+      setIndex(0);
+      setIsPlaying(true);
+      audioPlayer.current.src = playlist[0].file;
+      audioPlayer.current.play();
+      setSongImg(playlist[0].image);
+      setSongTitle(playlist[0].title);
+      setSongArtist(playlist[0].artist);
+    } else {
+      setIndex(index + 1);
+      setIsPlaying(true);
+      audioPlayer.current.src = playlist[index + 1].file;
+      audioPlayer.current.play();
+      setSongImg(playlist[index + 1].image);
+      setSongTitle(playlist[index + 1].title);
+      setSongArtist(playlist[index + 1].artist);
     }
   };
 
-  const removeFromFavSongs = (song) => {
-    allSongs[index] = {
-      ...allSongs[index],
-      isLiked: false,
-    };
-    const restSongs = likedSongs.filter((s) => s.title !== song.title);
-    setLikedSongs(restSongs);
-    localStorage.setItem("likedSongs", JSON.stringify(restSongs));
+  const toggleSkipBackward = () => {
+    if (index > 0) {
+      setIndex(index - 1);
+      setIsPlaying(true);
+      audioPlayer.current.src = playlist[index - 1].file;
+      audioPlayer.current.play();
+      setSongImg(playlist[index - 1].image);
+      setSongTitle(playlist[index - 1].title);
+      setSongArtist(playlist[index - 1].artist);
+    } else {
+      setIndex(0);
+      setIsPlaying(true);
+      audioPlayer.current.src = playlist[0].file;
+      audioPlayer.current.play();
+      setSongImg(playlist[0].image);
+      setSongTitle(playlist[0].title);
+      setSongArtist(playlist[0].artist);
+    }
   };
 
   return (
@@ -60,18 +101,23 @@ const MusicPlayerProvider = ({ children }) => {
         allSongs,
         index,
         setIndex,
-        likedSongs,
-        setLikedSongs,
-        addToFavSongs,
-        removeFromFavSongs,
         songImg,
-        setSongImg,
         songTitle,
-        setSongTitle,
         songArtist,
-        setSongArtist,
         isPlaying,
         setIsPlaying,
+        toggleLikeSong,
+        data,
+        currentSong,
+        setCurrentSong,
+        setPlaylist,
+        audioPlayer,
+        togglePlay,
+        toggleSkipForward,
+        toggleSkipBackward,
+        setSongImg,
+        setSongTitle,
+        setSongArtist,
       }}
     >
       {children}

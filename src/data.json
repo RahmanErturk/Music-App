@@ -1,0 +1,319 @@
+{
+  "songs": [
+    {
+      "id": 1,
+      "title": "Alone",
+      "artist": "Color Out",
+      "album": "Alone - Single",
+      "image": "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/be/f5/9d/bef59da4-87fb-5173-dc74-365304b329f9/198000878160.jpg/400x400bb.jpg",
+      "file": "music/Alone_-_Color_Out.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 2,
+      "title": "Hello",
+      "artist": "Adele",
+      "album": "25",
+      "image": "https://upload.wikimedia.org/wikipedia/en/9/96/Adele_-_25_%28Official_Album_Cover%29.png",
+      "file": "music/Adele_Hello.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 3,
+      "title": "Rolling in the Deep",
+      "artist": "Adele",
+      "album": "21",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/Adele_-_21.png/220px-Adele_-_21.png",
+      "file": "music/Adele_Rolling_in_the_Deep_Official_Music_Video_.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 4,
+      "title": "Someone Like You",
+      "artist": "Adele",
+      "album": "21",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/1/1b/Adele_-_21.png/220px-Adele_-_21.png",
+      "file": "music/Adele_Someone_Like_You_Official_Music_Video_.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 5,
+      "title": "Back in Black",
+      "artist": "AC/DC",
+      "album": "Back in Black",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3e/ACDC_Back_in_Black_cover.svg/1024px-ACDC_Back_in_Black_cover.svg.png",
+      "file": "music/AC_DC_Back_In_Black.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 6,
+      "title": "As it was",
+      "artist": "Harry Styles",
+      "album": "Harry's House",
+      "image": "https://upload.wikimedia.org/wikipedia/en/d/d5/Harry_Styles_-_Harry%27s_House.png",
+      "file": "music/Harry_Styles_As_It_Was_Lyrics_.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 7,
+      "title": "Golden",
+      "artist": "Harry Styles",
+      "album": "Fine Line",
+      "image": "https://upload.wikimedia.org/wikipedia/en/b/b1/Harry_Styles_-_Fine_Line.png",
+      "file": "music/Harry_Styles_Golden.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 8,
+      "title": "Watermelon Sugar",
+      "artist": "Harry Styles",
+      "album": "Fine Line",
+      "image": "https://upload.wikimedia.org/wikipedia/en/b/b1/Harry_Styles_-_Fine_Line.png",
+      "file": "music/Harry_Styles_Watermelon_Sugar.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 9,
+      "title": "Şımarık",
+      "artist": "Tarkan",
+      "album": "Ölürüm Sana",
+      "image": "https://upload.wikimedia.org/wikipedia/en/d/d0/Tarkan_-_%C3%96l%C3%BCr%C3%BCm_Sana.jpg",
+      "file": "music/Kiss_Kiss_Tarkan_.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 10,
+      "title": "Dudu",
+      "artist": "Tarkan",
+      "album": "Dudu",
+      "image": "https://upload.wikimedia.org/wikipedia/en/f/f9/Tarkan_-_Dudu_%28album%29.jpg",
+      "file": "music/Tarkan_Dudu.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 11,
+      "title": "Kuzu Kuzu",
+      "artist": "Tarkan",
+      "album": "Karma",
+      "image": "https://upload.wikimedia.org/wikipedia/en/1/11/Tarkan_-_Karma_%28Tarkan_album%29.jpg",
+      "file": "music/Tarkan_Kuzu_Kuzu.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 12,
+      "title": "Chandelier",
+      "artist": "Sia",
+      "album": "1000 Forms of Fear",
+      "image": "https://m.media-amazon.com/images/I/8115gPjiT-L._SL1500_.jpg",
+      "file": "music/Sia_Chandelier.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 13,
+      "title": "Cheap Thrills (feat. Sean Paul)",
+      "artist": "Sia",
+      "album": "This is Acting",
+      "image": "https://upload.wikimedia.org/wikipedia/en/f/fd/Thisisacting_albumcover.png",
+      "file": "music/Sia_Cheap_Thrills_feat_Sean_Paul_.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 14,
+      "title": "Unstoppable",
+      "artist": "Sia",
+      "album": "This is Acting",
+      "image": "https://upload.wikimedia.org/wikipedia/en/f/fd/Thisisacting_albumcover.png",
+      "file": "music/Sia_Unstoppable.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 15,
+      "title": "Losing My Religion",
+      "artist": "R.E.M.",
+      "album": "Out of Time",
+      "image": "https://upload.wikimedia.org/wikipedia/en/9/9b/R.E.M._-_Out_of_Time.jpg",
+      "file": "music/R_E_M_Losing_My_Religion.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 16,
+      "title": "Enter Sandman",
+      "artist": "Metallica",
+      "album": "Metallica",
+      "image": "https://upload.wikimedia.org/wikipedia/en/2/2c/Metallica_-_Metallica_cover.jpg",
+      "file": "music/Metallica_Enter_Sandman.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 17,
+      "title": "Dust in the Wind",
+      "artist": "Kansas",
+      "album": "Point of Know Return",
+      "image": "https://upload.wikimedia.org/wikipedia/en/0/0d/Kansas_-_Point_of_Know_Return.jpg",
+      "file": "music/Kansas_Dust_in_the_Wind.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 18,
+      "title": "Knockin' on Heaven's Door",
+      "artist": "Bob Dylan",
+      "album": "Pat Garrett & Billy the Kid",
+      "image": "https://upload.wikimedia.org/wikipedia/commons/9/9d/Bob_Dylan_-_Pat_Garrett_%26_Billy_the_Kid.jpg",
+      "file": "music/Bob_Dylan_Knockin_On_Heaven_s_Door_Official_Au.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 19,
+      "title": "Smoke on the Water",
+      "artist": "Deep Purple",
+      "album": "Machine Head",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/0/00/Machine_Head_album_cover.jpg/220px-Machine_Head_album_cover.jpg",
+      "file": "music/Deep_Purple_Smoke_on_the_Water.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 20,
+      "title": "Still D.R.E. (feat. Snoop Dogg)",
+      "artist": "Dr. Dre, Snoop Dogg",
+      "album": "2001",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/DrDre-2001.jpg/220px-DrDre-2001.jpg",
+      "file": "music/Dr_Dre_Still_D_R_E_.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 21,
+      "title": "The Next Episode (feat. Snoop Dogg)",
+      "artist": "Dr. Dre, Snoop Dogg",
+      "album": "2001",
+      "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/DrDre-2001.jpg/220px-DrDre-2001.jpg",
+      "file": "music/Dr_Dre_The_Next_Episode.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 22,
+      "title": "Gangsta's Paradise",
+      "artist": "Coolio",
+      "album": "Gangsta's Paradise",
+      "image": "https://upload.wikimedia.org/wikipedia/en/e/e9/Coolio_-_Gangsta%27s_Paradise.jpg",
+      "file": "music/Gangsta_s_Paradise.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 23,
+      "title": "Let It Snow!",
+      "artist": "Frank Sinatra",
+      "album": "Christmas Songs by Sinatra",
+      "image": "https://upload.wikimedia.org/wikipedia/en/5/58/Christmassongsbysinatra.jpg",
+      "file": "music/Frank_Sinatra_Let_It_Snow_Lyrics_.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 24,
+      "title": "It's a Lovely Day Today",
+      "artist": "Ella Fitzgerald",
+      "album": "Ella Fitzgerald Sings the Irving Berlin Song Book",
+      "image": "https://upload.wikimedia.org/wikipedia/en/1/1a/Ellaberlin.jpg",
+      "file": "music/It_s_A_Lovely_Day_Today_Ella_Fitzgerald.mp3",
+      "isLiked": false
+    },
+    {
+      "id": 25,
+      "title": "What a Wonderful World",
+      "artist": "Louis Armstrong",
+      "album": "What a Wonderful World",
+      "image": "https://m.media-amazon.com/images/I/71oBdOk+2BL._SL1099_.jpg",
+      "file": "music/Sia_Unstoppable.mp3",
+      "isLiked": false
+    }
+  ],
+  "playlists": [
+    {
+      "id": 1,
+      "name": "pop",
+      "image": "",
+      "songs": [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14]
+    },
+    {
+      "id": 2,
+      "name": "rock",
+      "image": "",
+      "songs": [15, 17, 18]
+    },
+    {
+      "id": 3,
+      "name": "hip-hop",
+      "image": "",
+      "songs": [20, 21, 22]
+    },
+    {
+      "id": 4,
+      "name": "jazz",
+      "image": "",
+      "songs": [23, 24, 25]
+    },
+    {
+      "id": 5,
+      "name": "metal",
+      "image": "",
+      "songs": [5, 16, 19]
+    }
+  ],
+  "artists": [
+    {
+      "id": 1,
+      "name": "Adele",
+      "image": "",
+      "songs": [2, 3, 4]
+    },
+    {
+      "id": 2,
+      "name": "Harry Styles",
+      "image": "",
+      "songs": [6, 7, 8]
+    },
+    {
+      "id": 3,
+      "name": "Sia",
+      "image": "",
+      "songs": [12, 13, 14]
+    },
+    {
+      "id": 4,
+      "name": "Tarkan",
+      "image": "",
+      "songs": [9, 10, 11]
+    }
+  ],
+  "dailyMix": [
+    {
+      "id": 1,
+      "name": "Daily Mix 1",
+      "image": "https://upload.wikimedia.org/wikipedia/en/7/74/Adele_-_Rolling_in_the_Deep.png",
+      "songs": [1, 6, 11, 16, 21]
+    },
+    {
+      "id": 2,
+      "name": "Daily Mix 2",
+      "image": "https://upload.wikimedia.org/wikipedia/en/c/ce/Harry_Styles_-_Golden.png",
+      "songs": [2, 7, 12, 17, 22]
+    },
+    {
+      "id": 3,
+      "name": "Daily Mix 3",
+      "image": "https://upload.wikimedia.org/wikipedia/en/2/28/Bob_Dylan_-_Knockin_on_Heavens_Door.jpg",
+      "songs": [3, 8, 13, 18, 23]
+    },
+    {
+      "id": 4,
+      "name": "Daily Mix 4",
+      "image": "https://cdns-images.dzcdn.net/images/cover/1393e57c3de1848529a4e3f95d38cc4c/350x350.jpg",
+      "songs": [4, 9, 14, 19, 24]
+    },
+    {
+      "id": 5,
+      "name": "Daily Mix 5",
+      "image": "https://upload.wikimedia.org/wikipedia/en/4/42/Drdre2.JPG",
+      "songs": [5, 10, 15, 20, 25]
+    }
+  ]
+}

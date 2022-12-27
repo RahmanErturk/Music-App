@@ -40,23 +40,19 @@ const PSlider = styled(Slider)(({ theme, ...props }) => ({
 
 export default function MusicPlayer() {
   const {
-    allSongs,
-    addToFavSongs,
-    removeFromFavSongs,
+    toggleLikeSong,
     songImg,
-    setSongImg,
     songTitle,
-    setSongTitle,
     songArtist,
-    setSongArtist,
     isPlaying,
-    setIsPlaying,
     index,
-    setIndex,
+    data,
+    currentSong,
+    audioPlayer,
+    togglePlay,
+    toggleSkipForward,
+    toggleSkipBackward,
   } = useContext(MusicPlayerContext);
-
-  const audioPlayer = useRef();
-  const [currentSong] = useState(allSongs[index]);
 
   const [volume, setVolume] = useState(50);
   const [muted, setMuted] = useState(false);
@@ -97,54 +93,7 @@ export default function MusicPlayer() {
   }
 
   // #region ---------------- Toggle Buttons ------------------------------
-  const togglePlay = () => {
-    if (!isPlaying) {
-      audioPlayer.current.play();
-    } else {
-      audioPlayer.current.pause();
-    }
-    setIsPlaying(!isPlaying);
-  };
 
-  const toggleSkipForward = () => {
-    if (index >= allSongs.length - 1) {
-      setIndex(0);
-      setIsPlaying(true);
-      audioPlayer.current.src = allSongs[0].file;
-      audioPlayer.current.play();
-      setSongImg(allSongs[0].image);
-      setSongTitle(allSongs[0].title);
-      setSongArtist(allSongs[0].artist);
-    } else {
-      setIndex(index + 1);
-      setIsPlaying(true);
-      audioPlayer.current.src = allSongs[index + 1].file;
-      audioPlayer.current.play();
-      setSongImg(allSongs[index + 1].image);
-      setSongTitle(allSongs[index + 1].title);
-      setSongArtist(allSongs[index + 1].artist);
-    }
-  };
-
-  const toggleSkipBackward = () => {
-    if (index > 0) {
-      setIndex(index - 1);
-      setIsPlaying(true);
-      audioPlayer.current.src = allSongs[index - 1].file;
-      audioPlayer.current.play();
-      setSongImg(allSongs[index - 1].image);
-      setSongTitle(allSongs[index - 1].title);
-      setSongArtist(allSongs[index - 1].artist);
-    } else {
-      setIndex(0);
-      setIsPlaying(true);
-      audioPlayer.current.src = allSongs[0].file;
-      audioPlayer.current.play();
-      setSongImg(allSongs[0].image);
-      setSongTitle(allSongs[0].title);
-      setSongArtist(allSongs[0].artist);
-    }
-  };
   // #endregion ---------------- Toggle Buttons ------------------------------
 
   return (
@@ -171,13 +120,14 @@ export default function MusicPlayer() {
           <p style={{ fontSize: "0.9rem" }}>{songArtist}</p>
         </Stack>
         <Stack sx={{ padding: "0 10px" }}>
-          {allSongs[index].isLiked ? (
-            <FilledLikeBtn
-              className="like-btn"
-              onClick={() => removeFromFavSongs(AllSounds[index])}
-            />
+          {data.songs ? (
+            data.songs[index].isLiked ? (
+              <FilledLikeBtn className="like-btn" onClick={toggleLikeSong} />
+            ) : (
+              <LikeBtn className="like-btn" onClick={toggleLikeSong} />
+            )
           ) : (
-            <LikeBtn className="like-btn" onClick={addToFavSongs} />
+            <LikeBtn className="like-btn" onClick={toggleLikeSong} />
           )}
         </Stack>
       </CustomPaper>
