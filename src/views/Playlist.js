@@ -3,27 +3,26 @@ import { MusicPlayerContext } from "../context/MusicPlayerProvider";
 
 import { useParams } from "react-router-dom";
 
-import { Container, Row, Col } from "react-bootstrap";
-
 import SongsOverview from "../components/SongsOverview";
 import songs from "../data.json";
 
-export default function Artist() {
+export default function Playlist() {
   const { id } = useParams();
 
   const { allSongs, setPlaylist } = useContext(MusicPlayerContext);
 
-  const artist = songs.artists.find((a) => a.id === +id);
+  const playlist = songs.playlists.find((pl) => pl.id === +id);
+  console.log(playlist);
 
-  const songsOfArtist = allSongs.filter((s) => artist.songs.includes(s.id));
+  const playlistSongs = allSongs.filter((s) => playlist.songs.includes(s.id));
 
   useEffect(() => {
-    setPlaylist(songsOfArtist);
+    setPlaylist(playlistSongs);
   }, [id]);
 
   return (
     <div className="Playlist">
-      <SongsOverview playlist={songsOfArtist} cover={artist} />
+      <SongsOverview playlist={playlistSongs} cover={playlist} />
     </div>
   );
 }

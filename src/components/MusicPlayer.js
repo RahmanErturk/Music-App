@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { MusicPlayerContext } from "../context/MusicPlayerProvider";
 import { styled, Typography, Slider, Paper, Stack, Box } from "@mui/material";
-import AllSounds from "./AllSounds";
 
 // #region ---------------- ICONS ------------------------------
 import LikeBtn from "@mui/icons-material/FavoriteBorder";
@@ -52,6 +51,7 @@ export default function MusicPlayer() {
     togglePlay,
     toggleSkipForward,
     toggleSkipBackward,
+    indexOfSongInDB,
   } = useContext(MusicPlayerContext);
 
   const [volume, setVolume] = useState(50);
@@ -92,13 +92,9 @@ export default function MusicPlayer() {
     return "00:00";
   }
 
-  // #region ---------------- Toggle Buttons ------------------------------
-
-  // #endregion ---------------- Toggle Buttons ------------------------------
-
   return (
     <div className="mp">
-      <audio src={currentSong} ref={audioPlayer} muted={muted} />
+      <audio ref={audioPlayer} muted={muted} />
       <CustomPaper className="mp-album" sx={{ width: "250px" }}>
         <Stack
           sx={{ padding: "0 10px", width: "90px", height: "70px" }}
@@ -121,7 +117,7 @@ export default function MusicPlayer() {
         </Stack>
         <Stack sx={{ padding: "0 10px" }}>
           {data.songs ? (
-            data.songs[index].isLiked ? (
+            data.songs[indexOfSongInDB].isLiked ? (
               <FilledLikeBtn className="like-btn" onClick={toggleLikeSong} />
             ) : (
               <LikeBtn className="like-btn" onClick={toggleLikeSong} />
@@ -193,7 +189,7 @@ export default function MusicPlayer() {
             <Typography sx={{ color: "silver" }}>
               {formatTime(elapsed)}
             </Typography>
-            <PSlider thumbless="true" value={elapsed} max={+duration} />
+            <PSlider thumbless="true" value={+elapsed} max={+duration} />
             <Typography sx={{ color: "silver" }}>
               {formatTime(duration - elapsed)}
             </Typography>

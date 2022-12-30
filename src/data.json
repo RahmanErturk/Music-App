@@ -178,6 +178,7 @@
       "album": "2001",
       "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/DrDre-2001.jpg/220px-DrDre-2001.jpg",
       "file": "music/Dr_Dre_Still_D_R_E_.mp3",
+      "genre": "Hip-Hop",
       "isLiked": false
     },
     {
@@ -187,6 +188,7 @@
       "album": "2001",
       "image": "https://upload.wikimedia.org/wikipedia/en/thumb/5/56/DrDre-2001.jpg/220px-DrDre-2001.jpg",
       "file": "music/Dr_Dre_The_Next_Episode.mp3",
+      "genre": "Hip-Hop",
       "isLiked": false
     },
     {
@@ -196,6 +198,7 @@
       "album": "Gangsta's Paradise",
       "image": "https://upload.wikimedia.org/wikipedia/en/e/e9/Coolio_-_Gangsta%27s_Paradise.jpg",
       "file": "music/Gangsta_s_Paradise.mp3",
+      "genre": "Hip-Hop",
       "isLiked": false
     },
     {
@@ -222,39 +225,44 @@
       "artist": "Louis Armstrong",
       "album": "What a Wonderful World",
       "image": "https://m.media-amazon.com/images/I/71oBdOk+2BL._SL1099_.jpg",
-      "file": "music/Sia_Unstoppable.mp3",
+      "file": "music/Louis_Armstrong_What_A_Wonderful_World.mp3",
       "isLiked": false
     }
   ],
   "playlists": [
     {
       "id": 1,
-      "name": "pop",
-      "image": "",
+      "name": "Pop",
+      "image": "https://i.ytimg.com/vi/0CWUFzbXVJg/maxresdefault.jpg",
+      "cover": "https://i.ytimg.com/vi/0CWUFzbXVJg/maxresdefault.jpg",
       "songs": [1, 2, 3, 4, 6, 7, 8, 9, 10, 11, 12, 13, 14]
     },
     {
       "id": 2,
-      "name": "rock",
-      "image": "",
+      "name": "Rock",
+      "image": "https://musicindustryhowtoimages.s3.amazonaws.com/wp-content/uploads/2022/03/06100159/What-Is-Rock-Music.jpg",
+      "cover": "https://musicindustryhowtoimages.s3.amazonaws.com/wp-content/uploads/2022/03/06100159/What-Is-Rock-Music.jpg",
       "songs": [15, 17, 18]
     },
     {
       "id": 3,
-      "name": "hip-hop",
-      "image": "",
+      "name": "Hip-Hop",
+      "image": "https://cdn.shopify.com/s/files/1/2245/0063/articles/Types_of_Rap_Music.jpg?v=1640604916",
+      "cover": "https://cdn.shopify.com/s/files/1/2245/0063/articles/Types_of_Rap_Music.jpg?v=1640604916",
       "songs": [20, 21, 22]
     },
     {
       "id": 4,
-      "name": "jazz",
-      "image": "",
+      "name": "Jazz",
+      "image": "https://www.gannett-cdn.com/-mm-/fe540925f187d73c8a91c93ece4e29936ea358fc/c=0-885-3804-3034/local/-/media/2015/07/16/MIGroup/Lansing/635726564289570272-ThinkstockPhotos-486813379-1-.jpg",
+      "cover": "https://www.gannett-cdn.com/-mm-/fe540925f187d73c8a91c93ece4e29936ea358fc/c=0-885-3804-3034/local/-/media/2015/07/16/MIGroup/Lansing/635726564289570272-ThinkstockPhotos-486813379-1-.jpg",
       "songs": [23, 24, 25]
     },
     {
       "id": 5,
-      "name": "metal",
-      "image": "",
+      "name": "Metal",
+      "image": "https://cdn.prod.www.spiegel.de/images/e293602f-c1c7-4284-b141-ece5c80c37a7_w1200_r1_fpx53_fpy44.jpg",
+      "cover": "https://cdn.prod.www.spiegel.de/images/e293602f-c1c7-4284-b141-ece5c80c37a7_w1200_r1_fpx53_fpy44.jpg",
       "songs": [5, 16, 19]
     }
   ],
@@ -262,25 +270,29 @@
     {
       "id": 1,
       "name": "Adele",
-      "image": "",
+      "image": "https://upload.wikimedia.org/wikipedia/en/9/96/Adele_-_25_%28Official_Album_Cover%29.png",
+      "cover": "https://assets.vogue.com/photos/62c1b040cc0090153719146e/master/w_2560%2Cc_limit/GettyImages-1406473145.jpg",
       "songs": [2, 3, 4]
     },
     {
       "id": 2,
       "name": "Harry Styles",
-      "image": "",
+      "image": "http://www.laut.de/Harry-Styles/harry-styles-217668.jpg",
+      "cover": "https://www.chicagotribune.com/resizer/U4nku9xscGRKw7rcUyuk4NrTTIc=/arc-anglerfish-arc2-prod-tronc/public/6SHW2DZIF5E6PHGQIQORFYQ7Q4.jpg",
       "songs": [6, 7, 8]
     },
     {
       "id": 3,
       "name": "Sia",
-      "image": "",
+      "image": "https://images.deltaradio.de/files/2021-02/sia.jpg?rect=center%2Cmiddle%2C1211%2C681&fit=crop&crop=faces&w=500&h=281&dpr=3&fm=webp",
+      "cover": "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f0/Sia_Furler_in_concert_with_Zero_7.jpg/800px-Sia_Furler_in_concert_with_Zero_7.jpg",
       "songs": [12, 13, 14]
     },
     {
       "id": 4,
       "name": "Tarkan",
-      "image": "",
+      "image": "https://www.indyturk.com/sites/default/files/styles/1368x911/public/article/main_image/2022/02/18/868656-1759776001.jpg?itok=YWncFIjS",
+      "cover": "https://www.t-vine.com/wp-content/uploads/2019/08/Tarkan-live-in-Moscow_FB-Tarkan_15May19-1024x682.jpg",
       "songs": [9, 10, 11]
     }
   ],
@@ -289,31 +301,37 @@
       "id": 1,
       "name": "Daily Mix 1",
       "image": "https://upload.wikimedia.org/wikipedia/en/7/74/Adele_-_Rolling_in_the_Deep.png",
+      "cover": "https://i.ytimg.com/vi/yoHS2T32Z5o/maxresdefault.jpg",
       "songs": [1, 6, 11, 16, 21]
     },
     {
       "id": 2,
       "name": "Daily Mix 2",
       "image": "https://upload.wikimedia.org/wikipedia/en/c/ce/Harry_Styles_-_Golden.png",
+      "cover": "https://optimise2.assets-servd.host/best-fit/production/images/harry-styles-as-it-was-radio-1-big-weekend-youtube.jpg?w=1200&h=784&q=100&auto=format&fit=crop&dm=1653955354&s=fb90c67a50d7021f2ec3b0a618b2978b",
       "songs": [2, 7, 12, 17, 22]
     },
     {
       "id": 3,
       "name": "Daily Mix 3",
       "image": "https://upload.wikimedia.org/wikipedia/en/2/28/Bob_Dylan_-_Knockin_on_Heavens_Door.jpg",
+      "cover": "https://s1.dmcdn.net/v/CXimC1MPDdb7Re3Cc/x720",
       "songs": [3, 8, 13, 18, 23]
     },
     {
       "id": 4,
       "name": "Daily Mix 4",
       "image": "https://cdns-images.dzcdn.net/images/cover/1393e57c3de1848529a4e3f95d38cc4c/350x350.jpg",
+      "cover": "https://bravewords.com/medias-static/images/galleries/6206B934-deeppurple22kickoff/F323A767-deeppurple22kickoff-image.jpg",
       "songs": [4, 9, 14, 19, 24]
     },
     {
       "id": 5,
       "name": "Daily Mix 5",
       "image": "https://upload.wikimedia.org/wikipedia/en/4/42/Drdre2.JPG",
+      "cover": "https://cdn.prod.www.spiegel.de/images/9aee0022-28cf-40b3-8477-0e046bf966c7_w1600_r0.9916897506925207_fpx53_fpy58.jpg",
       "songs": [5, 10, 15, 20, 25]
     }
-  ]
+  ],
+  "popularSongs": [3, 5, 6, 9]
 }

@@ -1,3 +1,9 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 .App {
   background-color: #282c34;
   min-height: 100vh;
@@ -17,6 +23,22 @@
   color: #61dafb;
 } */
 
+.Home,
+.Albums,
+.Artists,
+.Fav-songs,
+.dm-page,
+.Playlist {
+  background-color: #282c34;
+  position: absolute;
+  right: 0;
+  top: 79px;
+  padding-bottom: 130px;
+  width: calc(100vw - 200px);
+  min-height: calc(100vh - 189px);
+  box-sizing: border-box;
+}
+
 .nav-bar {
   display: flex;
   align-items: center;
@@ -28,15 +50,6 @@
   width: 200px;
   min-height: calc(100vh - 110px);
   background-color: #333a47;
-}
-
-.Home,
-.Albums,
-.Artists,
-.Fav-songs {
-  width: calc(100vw - 200px);
-  position: relative;
-  left: 200px;
 }
 
 .nav-bar__link {
@@ -72,4 +85,110 @@
   justify-content: center;
   align-items: center;
   padding: 10px;
+}
+
+.home-title {
+  margin: 0 0 1rem 0rem;
+}
+
+.daily-mix__cont {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.daily-mix__item {
+  position: relative;
+  color: silver;
+  width: 300px;
+  aspect-ratio: 1/1;
+  margin-right: 1rem;
+  background-color: black;
+}
+
+.daily-mix__item:hover {
+  color: white;
+}
+
+.daily-mix__item img {
+  opacity: 0.7;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.daily-mix__item img:hover {
+  opacity: 1;
+}
+
+.daily-mix__item h2 {
+  position: absolute;
+  bottom: 0px;
+  padding: 1rem;
+  margin: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  width: 100%;
+}
+
+.dm-page__img {
+  width: 100%;
+  height: 350px;
+}
+
+.dm-page__img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.playlists {
+  width: 300px;
+  aspect-ratio: 1/1;
+}
+
+.pl-item {
+  background-color: #1e2127;
+}
+
+.playlists img {
+  opacity: 0.8;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+}
+
+.playlists img:hover {
+  opacity: 1;
+}
+
+.playlists h4 {
+  padding: 1rem;
+}
+
+.popular {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 400px;
+  height: 300px;
+  background-color: black;
+}
+
+.popular img {
+  opacity: 0.7;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.popular img:hover {
+  opacity: 1;
+}
+
+.popular h1 {
+  position: absolute;
 }

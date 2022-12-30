@@ -14,8 +14,8 @@ export default function Navb() {
           </Link>
         </Nav.Link>
         <Nav.Link>
-          <Link className="nav-bar__link" to="/albums">
-            Albums
+          <Link className="nav-bar__link" to="/playlists">
+            Playlists
           </Link>
         </Nav.Link>
         <Nav.Link>

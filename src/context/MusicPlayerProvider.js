@@ -8,16 +8,16 @@ const MusicPlayerProvider = ({ children }) => {
 
   const [allSongs] = useState(songs.songs);
   const [data, setData] = useState({});
-  const [playlist, setPlaylist] = useState([]);
+  const [playlist, setPlaylist] = useState([{ ...allSongs[2] }]);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const [currentSong, setCurrentSong] = useState("");
+  const [songImg, setSongImg] = useState(allSongs[2].image);
+  const [songTitle, setSongTitle] = useState(allSongs[2].title);
+  const [songArtist, setSongArtist] = useState(allSongs[2].artist);
 
-  const [songImg, setSongImg] = useState("");
-  const [songTitle, setSongTitle] = useState("");
-  const [songArtist, setSongArtist] = useState("");
+  const [searchValue, setSearchValue] = useState("");
 
   const getData = () => {
     fetch("http://localhost:4000/api")
@@ -29,14 +29,16 @@ const MusicPlayerProvider = ({ children }) => {
 
   useEffect(getData, []);
 
+  const pathName = window.location.pathname;
+
   const toggleLikeSong = () => {
-    console.log(data.songs[index]);
-    fetch(`http://localhost:4000/api/songs/${data.songs[index].id}`, {
+    console.log(data.songs[indexOfSongInDB]);
+    fetch(`http://localhost:4000/api/songs/${data.songs[indexOfSongInDB].id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        ...data.songs[index],
-        isLiked: !data.songs[index].isLiked,
+        ...data.songs[indexOfSongInDB],
+        isLiked: !data.songs[indexOfSongInDB].isLiked,
       }),
     })
       .then((res) => {
@@ -46,6 +48,17 @@ const MusicPlayerProvider = ({ children }) => {
       .then((message) => console.log(message));
   };
 
+  const changeCurrentSong = (param) => {
+    setIndex(+param);
+    setIsPlaying(true);
+    audioPlayer.current.src = "http://localhost:3000/" + playlist[param].file;
+    audioPlayer.current.play();
+    setSongImg(playlist[param].image);
+    setSongTitle(playlist[param].title);
+    setSongArtist(playlist[param].artist);
+    console.log(audioPlayer);
+  };
+
   const togglePlay = () => {
     if (!isPlaying) {
       audioPlayer.current.play();
@@ -53,6 +66,7 @@ const MusicPlayerProvider = ({ children }) => {
       audioPlayer.current.pause();
     }
     setIsPlaying(!isPlaying);
+    console.log(audioPlayer);
   };
 
   const toggleSkipForward = () => {
@@ -95,6 +109,10 @@ const MusicPlayerProvider = ({ children }) => {
     }
   };
 
+  const indexOfSongInDB = data.songs
+    ? data.songs.findIndex((s) => s.id === playlist[index].id)
+    : -1;
+
   return (
     <MusicPlayerContext.Provider
       value={{
@@ -108,8 +126,6 @@ const MusicPlayerProvider = ({ children }) => {
         setIsPlaying,
         toggleLikeSong,
         data,
-        currentSong,
-        setCurrentSong,
         setPlaylist,
         audioPlayer,
         togglePlay,
@@ -118,6 +134,10 @@ const MusicPlayerProvider = ({ children }) => {
         setSongImg,
         setSongTitle,
         setSongArtist,
+        changeCurrentSong,
+        indexOfSongInDB,
+        searchValue,
+        setSearchValue,
       }}
     >
       {children}

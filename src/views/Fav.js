@@ -2,22 +2,11 @@ import { useContext, useEffect } from "react";
 
 import { MusicPlayerContext } from "../context/MusicPlayerProvider";
 
-import MusicPlayer from "../components/MusicPlayer";
-
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Col } from "react-bootstrap";
 
 export default function Fav() {
-  const {
-    allSongs,
-    data,
-    setPlaylist,
-    index,
-    setIndex,
-    setCurrentSong,
-    setSongImg,
-    setSongTitle,
-    setSongArtist,
-  } = useContext(MusicPlayerContext);
+  const { allSongs, data, changeCurrentSong, setPlaylist } =
+    useContext(MusicPlayerContext);
 
   const likedSongsInDb = data.songs
     ? data.songs.filter((s) => s.isLiked === true)
@@ -27,18 +16,13 @@ export default function Fav() {
 
   const likedSongs = allSongs.filter((s) => mappedSongs.includes(s.id));
 
-  const changeCurrentSong = (param) => {
+  useEffect(() => {
     setPlaylist(likedSongs);
-    setIndex(+param);
-    setCurrentSong(likedSongs[index].file);
-    setSongImg(likedSongs[index].image);
-    setSongTitle(likedSongs[index].title);
-    setSongArtist(likedSongs[index].artist);
-  };
+  }, []);
 
   return (
-    <div>
-      <Container className="Fav-songs py-5">
+    <div className="Fav-songs">
+      <Container>
         {likedSongs.map((s, i) => {
           return (
             <Row onClick={() => changeCurrentSong(i)} key={i}>
@@ -57,7 +41,6 @@ export default function Fav() {
           );
         })}
       </Container>
-      <MusicPlayer playlist={likedSongs} />
     </div>
   );
 }
