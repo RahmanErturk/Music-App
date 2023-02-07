@@ -1,24 +1,20 @@
-import { useContext, useEffect } from "react";
+import { useContext } from "react";
 import { MusicPlayerContext } from "../context/MusicPlayerProvider";
 
 import { useParams } from "react-router-dom";
 
 import SongsOverview from "../components/SongsOverview";
-import songs from "../data.json";
 
 export default function Playlist() {
   const { id } = useParams();
 
-  const { allSongs, setPlaylist } = useContext(MusicPlayerContext);
+  const { data } = useContext(MusicPlayerContext);
 
-  const playlist = songs.playlists.find((pl) => pl.id === +id);
-  console.log(playlist);
+  const playlist = data.playlists?.find((pl) => pl.id === +id);
 
-  const playlistSongs = allSongs.filter((s) => playlist.songs.includes(s.id));
-
-  useEffect(() => {
-    setPlaylist(playlistSongs);
-  }, [id]);
+  const playlistSongs = data.songs?.filter((s) =>
+    playlist.songs?.includes(s.id)
+  );
 
   return (
     <div className="Playlist">

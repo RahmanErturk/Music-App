@@ -1,17 +1,19 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { MusicPlayerContext } from "../context/MusicPlayerProvider";
 
-import songs from "../data.json";
+import { Link } from "react-router-dom";
 
 import { Container, Row, Col } from "react-bootstrap";
 
 export default function ArtistOverview() {
+  const { data } = useContext(MusicPlayerContext);
+
   return (
     <div className="Albums">
       <Container>
         <h1>Artists</h1>
         <Row>
-          {songs.artists.map((a, i) => (
+          {data.artists?.map((a, i) => (
             <Col className="playlists" key={i}>
               <Link
                 to={`/artists/${a.id}`}

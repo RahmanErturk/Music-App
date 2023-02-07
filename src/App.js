@@ -28,7 +28,7 @@ function App() {
             <Route path="/artists/:id" element={<Artist />} />
             <Route path="/liked-songs" element={<Fav />} />
             <Route path="/daily-mix/:id" element={<DailyMix />} />
-            <Route path="/search/:value" element={<SearchResult />} />
+            <Route path="/search" element={<SearchResult />} />
           </Routes>
           <Navb />
           <MusicPlayer />

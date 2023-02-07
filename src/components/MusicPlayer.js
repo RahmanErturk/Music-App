@@ -46,7 +46,7 @@ export default function MusicPlayer() {
     isPlaying,
     index,
     data,
-    currentSong,
+    playlist,
     audioPlayer,
     togglePlay,
     toggleSkipForward,
@@ -92,6 +92,8 @@ export default function MusicPlayer() {
     return "00:00";
   }
 
+  console.log(audioPlayer);
+
   return (
     <div className="mp">
       <audio ref={audioPlayer} muted={muted} />
@@ -116,15 +118,13 @@ export default function MusicPlayer() {
           <p style={{ fontSize: "0.9rem" }}>{songArtist}</p>
         </Stack>
         <Stack sx={{ padding: "0 10px" }}>
-          {data.songs ? (
-            data.songs[indexOfSongInDB].isLiked ? (
+          {playlist?.length > 0 ? (
+            data.songs[indexOfSongInDB]?.isLiked ? (
               <FilledLikeBtn className="like-btn" onClick={toggleLikeSong} />
             ) : (
               <LikeBtn className="like-btn" onClick={toggleLikeSong} />
             )
-          ) : (
-            <LikeBtn className="like-btn" onClick={toggleLikeSong} />
-          )}
+          ) : null}
         </Stack>
       </CustomPaper>
       <div className="mp-player">
@@ -189,7 +189,14 @@ export default function MusicPlayer() {
             <Typography sx={{ color: "silver" }}>
               {formatTime(elapsed)}
             </Typography>
-            <PSlider thumbless="true" value={+elapsed} max={+duration} />
+            <PSlider
+              thumbless="true"
+              value={+elapsed}
+              max={+duration}
+              onChange={(e, v) => {
+                audioPlayer.current.currentTime = v;
+              }}
+            />
             <Typography sx={{ color: "silver" }}>
               {formatTime(duration - elapsed)}
             </Typography>
@@ -209,7 +216,7 @@ export default function MusicPlayer() {
                 // justifyContent: "flex-start",
               }}
             >
-              {muted ? (
+              {muted || volume === 0 ? (
                 <VolumeOffBtn
                   sx={{
                     color: "silver",

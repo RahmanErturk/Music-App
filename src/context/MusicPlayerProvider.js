@@ -1,23 +1,24 @@
 import { createContext, useState, useEffect, useRef } from "react";
-import songs from "../data.json";
+import { useSearchParams } from "react-router-dom";
 
 export const MusicPlayerContext = createContext();
 
 const MusicPlayerProvider = ({ children }) => {
   const audioPlayer = useRef();
 
-  const [allSongs] = useState(songs.songs);
   const [data, setData] = useState({});
-  const [playlist, setPlaylist] = useState([{ ...allSongs[2] }]);
+
+  const [playlist, setPlaylist] = useState([]);
 
   const [isPlaying, setIsPlaying] = useState(false);
   const [index, setIndex] = useState(0);
 
-  const [songImg, setSongImg] = useState(allSongs[2].image);
-  const [songTitle, setSongTitle] = useState(allSongs[2].title);
-  const [songArtist, setSongArtist] = useState(allSongs[2].artist);
+  const [songImg, setSongImg] = useState("");
+  const [songTitle, setSongTitle] = useState("");
+  const [songArtist, setSongArtist] = useState("");
 
-  const [searchValue, setSearchValue] = useState("");
+  const [searchParams, setSearchParams] = useSearchParams();
+  const searchTerm = searchParams.get("q") || "";
 
   const getData = () => {
     fetch("http://localhost:4000/api")
@@ -29,10 +30,7 @@ const MusicPlayerProvider = ({ children }) => {
 
   useEffect(getData, []);
 
-  const pathName = window.location.pathname;
-
   const toggleLikeSong = () => {
-    console.log(data.songs[indexOfSongInDB]);
     fetch(`http://localhost:4000/api/songs/${data.songs[indexOfSongInDB].id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
@@ -48,15 +46,15 @@ const MusicPlayerProvider = ({ children }) => {
       .then((message) => console.log(message));
   };
 
-  const changeCurrentSong = (param) => {
+  const changeCurrentSong = (playlist, param) => {
+    setPlaylist(playlist);
     setIndex(+param);
-    setIsPlaying(true);
-    audioPlayer.current.src = "http://localhost:3000/" + playlist[param].file;
+    audioPlayer.current.src = `${window.location.origin}/${playlist[param].file}`;
     audioPlayer.current.play();
+    setIsPlaying(true);
     setSongImg(playlist[param].image);
     setSongTitle(playlist[param].title);
     setSongArtist(playlist[param].artist);
-    console.log(audioPlayer);
   };
 
   const togglePlay = () => {
@@ -66,7 +64,6 @@ const MusicPlayerProvider = ({ children }) => {
       audioPlayer.current.pause();
     }
     setIsPlaying(!isPlaying);
-    console.log(audioPlayer);
   };
 
   const toggleSkipForward = () => {
@@ -109,14 +106,13 @@ const MusicPlayerProvider = ({ children }) => {
     }
   };
 
-  const indexOfSongInDB = data.songs
-    ? data.songs.findIndex((s) => s.id === playlist[index].id)
-    : -1;
+  const indexOfSongInDB = data.songs?.findIndex(
+    (s) => s?.id === playlist[index]?.id
+  );
 
   return (
     <MusicPlayerContext.Provider
       value={{
-        allSongs,
         index,
         setIndex,
         songImg,
@@ -136,8 +132,10 @@ const MusicPlayerProvider = ({ children }) => {
         setSongArtist,
         changeCurrentSong,
         indexOfSongInDB,
-        searchValue,
-        setSearchValue,
+        setSearchParams,
+        searchTerm,
+        playlist,
+        getData,
       }}
     >
       {children}

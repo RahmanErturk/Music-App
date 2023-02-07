@@ -2,7 +2,7 @@ import { useContext } from "react";
 
 import { MusicPlayerContext } from "../context/MusicPlayerProvider";
 
-import { useParams, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import { styled, alpha } from "@mui/material/styles";
 import InputBase from "@mui/material/InputBase";
@@ -54,17 +54,14 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 // #endregion ------- Styling Search-Bar -------
 
 export default function SearchBar() {
-  const { searchValue, setSearchValue } = useContext(MusicPlayerContext);
-
-  const { value } = useParams();
-  const navigate = useNavigate();
+  const { setSearchParams, searchTerm } = useContext(MusicPlayerContext);
 
   const searchHandler = (e) => {
-    const path = window.location.pathname;
-    console.log(path);
-    setSearchValue(e.target.value);
-    if (path === "/search/") navigate(`/`);
-    navigate(`/search/${e.target.value}`);
+    const q = e.target.value;
+
+    if (q) {
+      setSearchParams({ q });
+    } else setSearchParams({});
   };
 
   return (
@@ -73,11 +70,13 @@ export default function SearchBar() {
         <SearchIconWrapper>
           <SearchIcon />
         </SearchIconWrapper>
-        <StyledInputBase
-          value={searchValue}
-          onChange={searchHandler}
-          placeholder="Search…"
-        />
+        <Link style={{ textDecoration: "none", color: "silver" }} to="/search">
+          <StyledInputBase
+            value={searchTerm}
+            onChange={searchHandler}
+            placeholder="Search…"
+          />
+        </Link>
       </Search>
     </form>
   );
